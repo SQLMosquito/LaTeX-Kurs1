@@ -4,5 +4,7 @@
 *.nav
 *.out
 *.toc
+*.snm
 # autosave files
 auto/
+*.vrb
