@@ -4,3 +4,5 @@
 *.nav
 *.out
 *.toc
+# autosave files
+auto/
