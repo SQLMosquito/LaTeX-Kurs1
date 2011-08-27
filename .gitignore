@@ -1,0 +1,10 @@
+# latex compilation files
+*.aux
+*.log
+*.nav
+*.out
+*.toc
+*.snm
+# autosave files
+auto/
+*.vrb

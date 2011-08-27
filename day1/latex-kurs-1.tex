@@ -1,13 +1,13 @@
 %!TEX TS-program=xelatex
 %!TEX encoding=utf8
-
 \documentclass[xelatex,hyperref=xdvipdfmx,11pt]{beamer}
 
 %%%% XeLaTeX-Support %%%%
 % \usepackage{xltxtra}
 
 %%%% Encoding %%%%
-\uspackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 
 %%%% Pakete, die nie fehlen dürfen %%%%
 \usepackage{graphicx}
@@ -48,7 +48,7 @@
 
 
 %%%% Titelinfo %%%%
-\title[\LaTeX{} Kurs – Teil 1]{\LaTeX{} Kurs}
+\title[\LaTeX für Politikwissenschafter – Teil 1]{\LaTeX{} für Politikwissenschafter}
 \subtitle{Teil 1: Einführung und Installation}
 \author[Christian und Nicolas]{Christian Müller \and Nicolas Zahn}
 \institute[polito]{polito – Fachverein Politikwissenschaft}
@@ -71,7 +71,7 @@
 \Large%
 \kern 2cm
 \vbox{%
-\hbox{\LaTeX\  makes the easy things harder,}%
+\hbox{\LaTeX{} makes the easy things harder,}%
 \hbox{the harder things easier,}%
 \hbox{and the impossible things possible.}%
 }%
@@ -94,6 +94,9 @@
     \item Verzeichnisse (Inhaltsverzeichnis, Tabellen- und/oder
 	Abbildungsverzeichnis, Stichwortverzeichnis, usw. …) werden 
 	automatisch erstellt und sind immer korrekt (!).
+    \item Alle Dokumente als \emph{plaintext}-Format speichern. {\small 
+	(erleichtert u.\thinspace a. die Zusammenarbeit mit Mitautoren und 
+	ermöglich die Verwendung von Versionskontrollsystemen (git, …))}
 \end{itemize}
 
 
@@ -104,19 +107,19 @@
 \frametitle{Aufbau der Einführung}
 
 \begin{enumerate}
-  \item Einführung und Installation (heute)
+  \item Einführung und Installation (heute, 18.10.)
     \begin{itemize}
       \item Einführung in WYSIWYM
       \item \textbf{Installation Distribution und Editor (auf dem
 	  mitgebrachten Computer)}
     \end{itemize}
-  \item Arbeiten schreiben mit \LaTeX{}
+  \item Arbeiten schreiben mit \LaTeX{} (25.10.)
     \begin{itemize}
-      \item TBD
+      \item TBD % TODO
     \end{itemize}
-  \item Präsentationsfolien mit \LaTeX{}
+  \item Präsentationsfolien mit \LaTeX{} (1.11.)
     \begin{itemize}
-      \item TBD
+      \item Einführung ins \texttt{beamer}-Paket
     \end{itemize}
 \end{enumerate}
 
@@ -131,16 +134,21 @@
 }
 
 
-\section{Distribution und Editor}
+
+
+\section{\LaTeX{} Grundlagen}
+\label{sec:grundlagen}
+
+
+\subsection{Distributionen und Editoren}
 \label{sec:install}
 
 \frame{
 
+% TODO Einführung der Konzepte Editor/Distribution
 
 }
 
-\section{\LaTeX{} Grundlagen}
-\label{sec:grundlagen}
 
 \subsection{Begriffe}
 \label{sec:begriffe}
@@ -154,7 +162,7 @@
 \item \LaTeX{} ist eine Sammlung von Makros für \TeX
 \item \LaTeX{} wurde von Leslie Lamport (La(mport)\TeX ) enwickelt und wird zurzeit
      von Frank Mittelbach betreut
-\item die derzeitige \LaTeX -Version ist LaTeX2\textsubscript{$\epsilon$}
+   \item die derzeitige \LaTeX -Version ist LaTeX2$_{\epsilon}$
 \item \LaTeX 3 ist in Entwicklung
 \item sonstige Engines: teTeX, Xe(La)\TeX{}, eTeX
 \end{itemize}
@@ -191,31 +199,52 @@
 
 
 
-\begin{frame}
+\frame{
 \frametitle{Source-Code und Kompilation}
 
-\begin{itemize}
-  \item Source Code
-  \item Xxx …
-\end{itemize} 
+% TODO Einführung Konzepte Sourcecode und Kompilation
 
-\end{frame}
+}
 
 
-\begin{frame}
+\frame{
 \frametitle{Vor- und Nachteile von WYSIWYM}
-\label{sec-2_2_3}
-\begin{itemize}
-\item Vorteile\\
-\label{sec-2_2_3_1}%
-\end{itemize} 
-\end{frame}
-\begin{frame}
 
-    
-\frametitle{Xxx …}
-\label{sec-2_2_4}
-\end{frame}
+\begin{columns}
+
+\begin{column}{.5\textwidth}
+  \begin{block}{Vorteile}
+    \begin{itemize}
+      \item … % TODO Vorteile WYSIWYM
+    \end{itemize}
+  \end{block}
+\end{column}
+
+\begin{column}{.5\textwidth}
+  \begin{block}{Vorteile}
+    \begin{itemize}
+      \item … % TODO Nachteile WYSIWYM
+    \end{itemize}
+  \end{block}
+\end{column}
+
+\end{columns}
+
+}
+
+
+
+\section{Erste Schritt}
+\label{sec:erste-schritte}
+
+% TODO Einführungsdokument erstellen. 
+% Inhalt:
+% - Aufbaukommandos (section etc.)
+% - Schriftumschaltung (\bfseries etc.)
+% - Textausrichtung (\centering etc.)
+% - Math-Mode
+
+% TODO Folien zur Erklärung des Einführungsdokuments.
 
 
 \section*{Literatur}
