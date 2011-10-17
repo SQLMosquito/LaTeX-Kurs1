@@ -1,6 +1,8 @@
 # latex compilation files
 *.aux
 *.log
+*.lof
+*.lot
 *.nav
 *.out
 *.toc
