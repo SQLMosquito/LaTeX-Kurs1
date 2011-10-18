@@ -1,6 +1,17 @@
 %!TEX TS-program=xelatex
 %!TEX encoding=utf8
-\documentclass[xelatex,hyperref=xdvipdfmx,11pt]{beamer}
+%%%%%%%%
+% This introduction to LaTeX by Christian Mueller and Nicolas Zahn is licensed
+% under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view
+% a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/
+% or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain
+% View, California, 94041, USA.
+%%%%%%%%
+% title: LaTeX-Standarddokument
+% authors: Christian Mueller and Nicolas Zahn
+% last changed: 2011-10-18
+%%%%%%%%
+\documentclass[handout,11pt]{beamer}
 
 %%%% XeLaTeX-Support %%%%
 % \usepackage{xltxtra}
@@ -22,8 +33,7 @@
 % \usepackage{unicode-math}
 
 %%%% Sprache %%%%
-% \usepackage{polyglossia}
-% \setmainlanguage[spelling=new]{german}
+ \usepackage[ngerman]{babel}
 
 %%%% Schriften %%%%
 % \setmainfont[Path = /home/christian/.fonts/,UprightFont = *Regular.otf,ItalicFont = *Italic.otf,BoldFont = *Bold.otf,BoldItalicFont = *BoldItalic.otf,Mapping=tex-text,Numbers={Uppercase,Proportional}]{CallunaSans}
@@ -86,17 +96,17 @@
 \frame{
 \frametitle{Was kann man mit \LaTeX{} machen?}
 
-\begin{itemize}
+\begin{itemize}[<+->]
     \item Gut aussehende Dokumente produzieren, ohne viel Zeit für 
 	Formatierung zu verbrauchen.
     \item Automatisch (!) in allen gängien Stilen Zitieren und 
 	Bibliographieren.
     \item Verzeichnisse (Inhaltsverzeichnis, Tabellen- und/oder
-	Abbildungsverzeichnis, Stichwortverzeichnis, usw. \ldots) werden 
+	Abbildungsverzeichnis, Stichwortverzeichnis, usw. \dots) werden 
 	automatisch erstellt und sind immer korrekt (!).
     \item Alle Dokumente als \emph{plaintext}-Format speichern. {\small 
 	(erleichtert u.\thinspace a. die Zusammenarbeit mit Mitautoren und 
-	ermöglich die Verwendung von Versionskontrollsystemen (git, \ldots))}
+	ermöglich die Verwendung von Versionskontrollsystemen (git, \dots))}
 \end{itemize}
 
 
@@ -107,18 +117,21 @@
 \frametitle{Aufbau der Einführung}
 
 \begin{enumerate}
-  \item Einführung und Installation (heute, 18.10.)
+  \item<1-> Einführung und Installation (heute, 18.10.)
     \begin{itemize}
       \item Einführung in WYSIWYM
       \item \textbf{Installation Distribution und Editor (auf dem
 	  mitgebrachten Computer)}
+	\item{Besprechung des Standarddokuments und Einführung in \LaTeX{}}
     \end{itemize}
-  \item Arbeiten schreiben mit \LaTeX{} (25.10.)
+  \item<2-> Arbeiten schreiben mit \LaTeX{} (25.10.)
     % TODO Inhalt vom 2. Teil übertragen
     \begin{itemize}
-      \item TBD
+      \item IPZ-Paket
+      \item speziell wichtige Pakete und Kommandos für Arbeiten
+      \item \textbf{eine Word-Arbeit ins \LaTeX\  nehmen}
     \end{itemize}
-  \item Präsentationsfolien mit \LaTeX{} (1.11.)
+  \item<3-> Präsentationsfolien mit \LaTeX{} (1.11.)
     % TODO Inhalt vom 3. Teil übertragen
     \begin{itemize}
       \item Einführung ins \texttt{beamer}-Paket
@@ -138,22 +151,12 @@
 
 
 
-\section{\LaTeX{} Grundlagen}
+\section{\LaTeX{} Jargon}
 \label{sec:grundlagen}
 
 
-\subsection{Distributionen und Editoren}
-\label{sec:install}
-
-\frame{
-
-% TODO Einführung der Konzepte Editor/Distribution
-
-}
-
-
-\subsection{Begriffe}
-\label{sec:begriffe}
+\subsection{\TeX und \LaTeX}
+\label{sec:tex-latex}
 
 \begin{frame}
 \frametitle{\TeX und \LaTeX}
@@ -199,54 +202,69 @@
 
 }
 
+%\frame{
+%\frametitle{Vor- und Nachteile von WYSIWYM}
+
+%\begin{columns}
+
+%\begin{column}{.5\textwidth}
+%  \begin{block}{Vorteile}
+%    \begin{itemize}
+%      \item … % TODO Vorteile WYSIWYM
+%    \end{itemize}
+%  \end{block}
+%\end{column}
+
+%\begin{column}{.5\textwidth}
+%  \begin{block}{Vorteile}
+%    \begin{itemize}
+%      \item … % TODO Nachteile WYSIWYM
+%    \end{itemize}
+%  \end{block}
+%\end{column}
+
+%\end{columns}
+
+%}
+
+\subsection{Distributionen und Editoren}
+\label{sec:dist-editor}
+
+\begin{frame}
+  \frametitle{\LaTeX -Distribution}
+
+  \begin{itemize}[<+->]
+    \item beinhaltet die Programme (\texttt{latex}, \texttt{pdflatex},
+      etc.) und die Pakete (z.\thinspace B. \texttt{beamer})
+    \item die Programme und Pakete werden im \enquote{TEXMF}-Tree
+      gespeichert
+    \item wird (meistens) von einem Programm z.\thinspace B. TeXlive
+      oder MikTeX administriert
+  \end{itemize}
+
+\end{frame}
 
 
 \frame{
-\frametitle{Source-Code und Kompilation}
+  \frametitle{Editor}
 
-% TODO Einführung Konzepte Sourcecode und Kompilation
+  \begin{itemize}
+      \item<1-> mit dem Editor verändert man den (plaintext) Quellcode
+      \item<2-> grundsätzlich ist jedes Programm, das plaintex Dateien
+	lesen und schreiben kann ein Editor
+      \item<3-> es gibt Editoren, die spezielle Makrofunktionen
+	für \LaTeX\  haben
+      \item<4-> diese Makros erleichtern das Arbeiten mit \LaTeX
+      \item<5-> populäre Editoren für LaTeX sind:
+	\begin{itemize}
+	  \item TeXShop (Mac)
+	  \item TeXworks (Mac, Win, Unix)
+	  \item Emacs (Mac, Win, Unix)
+	  \item Vim (Mac, Win, Unix)
+	\end{itemize}
+    \end{itemize}
 
 }
-
-
-\frame{
-\frametitle{Vor- und Nachteile von WYSIWYM}
-
-\begin{columns}
-
-\begin{column}{.5\textwidth}
-  \begin{block}{Vorteile}
-    \begin{itemize}
-      \item … % TODO Vorteile WYSIWYM
-    \end{itemize}
-  \end{block}
-\end{column}
-
-\begin{column}{.5\textwidth}
-  \begin{block}{Vorteile}
-    \begin{itemize}
-      \item … % TODO Nachteile WYSIWYM
-    \end{itemize}
-  \end{block}
-\end{column}
-
-\end{columns}
-
-}
-
-
-
-\section{Erste Schritt}
-\label{sec:erste-schritte}
-
-% TODO Einführungsdokument erstellen. 
-% Inhalt:
-% - Aufbaukommandos (section etc.)
-% - Schriftumschaltung (\bfseries etc.)
-% - Textausrichtung (\centering etc.)
-% - Math-Mode
-
-% TODO Folien zur Erklärung des Einführungsdokuments.
 
 
 \section*{Literatur}
@@ -265,7 +283,7 @@
 
 \setbeamertemplate{bibliography item}[book]
 
-\bibitem{companion}  Frank Mittelbach und Michel Goossens mit Hohannes Braams, David Carlisle und Chris Rowley (2006)
+\bibitem{companion}  Frank Mittelbach und Michel Goossens mit Johannes Braams, David Carlisle und Chris Rowley (2006)
 \newblock The \LaTeX Companion
 \newblock 2. Auflage. Boston: Addison-Wesley.
 
